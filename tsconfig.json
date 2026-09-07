@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@learning-platform/core": ["../../packages/core/src/index.ts"],
+      "@learning-platform/core/*": ["../../packages/core/src/*"],
+      "@learning-platform/contracts": ["../../packages/contracts/src/index.ts"],
+      "@learning-platform/contracts/*": ["../../packages/contracts/src/*"],
+      "@learning-platform/plugin-auth": ["../../packages/plugins/plugin-auth/src/index.ts"],
+      "@learning-platform/plugin-catalog": ["../../packages/plugins/plugin-catalog/src/index.ts"],
+      "@learning-platform/plugin-learning": ["../../packages/plugins/plugin-learning/src/index.ts"],
+      "@learning-platform/plugin-credentials": ["../../packages/plugins/plugin-credentials/src/index.ts"],
+      "@learning-platform/plugin-localization": ["../../packages/plugins/plugin-localization/src/index.ts"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*",
+    "tests/**/*",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
+}

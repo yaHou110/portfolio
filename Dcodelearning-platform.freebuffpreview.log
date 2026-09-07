@@ -1,0 +1,352 @@
+   ▲ Next.js 15.5.20
+   - Local:        http://localhost:3000
+   - Network:      http://10.185.232.29:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Compiled /instrumentation in 753ms (22 modules)
+ ✓ Ready in 4.2s
+ ✓ Compiled /middleware in 288ms (117 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 3.3s (559 modules)
+ ✓ Compiled in 817ms (238 modules)
+ GET /login 200 in 131ms
+ GET /login 200 in 102ms
+ GET /login 200 in 87ms
+ GET /login 200 in 123ms
+ GET /login?tenantSlug=demo&email=admin%40lp.local&password=changeme 200 in 96ms
+ GET /login?tenantSlug=demo&email=admin%40lp.local&password=changeme 200 in 103ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 2s (821 modules)
+[31m[auth][error][0m MissingCSRF: CSRF token was missing during an action callback. Read more at https://errors.authjs.dev#missingcsrf
+    at validateCSRF (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/actions/callback/oauth/csrf-token.js:45:11)
+    at AuthInternal (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/index.js:69:104)
+    at async Auth (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:38696)
+    at async AppRouteRouteModule.handle (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:45978)
+    at async responseGenerator (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:206:38)
+    at async AppRouteRouteModule.handleResponse (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:1:195304)
+    at async handleResponse (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:268:32)
+    at async handler (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:320:13)
+    at async DevServer.renderToResponseWithComponentsImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1430:9)
+    at async DevServer.renderPageComponent (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1482:24)
+    at async DevServer.renderToResponseImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1522:32)
+    at async DevServer.pipeImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1026:25)
+    at async NextNodeServer.handleCatchallRenderRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:917:17)
+    at async D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:400:20
+    at async Span.traceAsyncFn (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:396:24)
+    at async invokeRender (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\start-server.js:226:13)
+ POST /api/auth/callback/credentials 302 in 4743ms
+ GET /login 200 in 596ms
+ ✓ Compiled in 479ms (117 modules)
+ GET /api/auth/csrf 200 in 72ms
+ GET /login 200 in 314ms
+ GET /api/auth/csrf 200 in 41ms
+[31m[auth][error][0m MissingCSRF: CSRF token was missing during an action callback. Read more at https://errors.authjs.dev#missingcsrf
+    at validateCSRF (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/actions/callback/oauth/csrf-token.js:45:11)
+    at AuthInternal (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/index.js:69:104)
+    at async Auth (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:38696)
+    at async AppRouteRouteModule.handle (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:45978)
+    at async responseGenerator (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:206:38)
+    at async AppRouteRouteModule.handleResponse (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:1:195304)
+    at async handleResponse (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:268:32)
+    at async handler (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:320:13)
+    at async DevServer.renderToResponseWithComponentsImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1430:9)
+    at async DevServer.renderPageComponent (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1482:24)
+    at async DevServer.renderToResponseImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1522:32)
+    at async DevServer.pipeImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1026:25)
+    at async NextNodeServer.handleCatchallRenderRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:917:17)
+    at async D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:400:20
+    at async Span.traceAsyncFn (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:396:24)
+    at async invokeRender (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\start-server.js:226:13)
+ POST /api/auth/callback/credentials 302 in 36ms
+ GET /login?tenantSlug=demo&email=admin%40lp.local&password=changeme 200 in 198ms
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /api/auth/csrf 200 in 46ms
+[31m[auth][error][0m CallbackRouteError: Read more at https://errors.authjs.dev#callbackrouteerror
+[31m[auth][cause][0m: Error: Failed query: select "id" from "tenants" where "tenants"."slug" = $1 limit $2
+params: demo,1
+    at NodePgPreparedQuery.queryWithCache (webpack-internal:///(rsc)/../../node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.20.0_pg@8.22.0/node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async eval (webpack-internal:///(rsc)/../../node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.20.0_pg@8.22.0/node_modules/drizzle-orm/node-postgres/session.js:134:22)
+    at async verifyPassword (webpack-internal:///(rsc)/../../packages/core/src/auth/credentials.ts:40:24)
+    at async Object.authorize (webpack-internal:///(rsc)/./src/auth.ts:58:32)
+    at async Module.callback (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/actions/callback/index.js:241:39)
+    at async AuthInternal (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/index.js:70:24)
+    at async Auth (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:38696)
+    at async AppRouteRouteModule.handle (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:45978)
+    at async responseGenerator (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:206:38)
+    at async AppRouteRouteModule.handleResponse (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:1:195304)
+    at async handleResponse (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:268:32)
+    at async handler (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:320:13)
+    at async DevServer.renderToResponseWithComponentsImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1430:9)
+    at async DevServer.renderPageComponent (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1482:24)
+    at async DevServer.renderToResponseImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1522:32)
+    at async DevServer.pipeImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1026:25)
+    at async NextNodeServer.handleCatchallRenderRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:917:17)
+    at async D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:400:20
+    at async Span.traceAsyncFn (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:396:24)
+    at async invokeRender (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\start-server.js:226:13)
+[31m[auth][details][0m: {
+  "length": 113,
+  "name": "error",
+  "severity": "FATAL",
+  "code": "28P01",
+  "file": "auth.c",
+  "line": "331",
+  "routine": "auth_failed",
+  "provider": "credentials"
+}
+ POST /api/auth/callback/credentials 302 in 165ms
+ ○ Compiling /api/auth/session ...
+ ✓ Compiled /api/auth/session in 2.1s (869 modules)
+{"level":30,"time":"2026-08-07T12:46:49.275Z","service":"learning-platform","env":"development","requestId":"db537e3a-c93a-4567-967c-77d37756646d","method":"GET","route":"/api/auth/session","status":401,"durationMs":29,"msg":"request_completed"}
+ GET /api/auth/session 401 in 2863ms
+ ○ Compiling /api/health ...
+ ✓ Compiled /api/health in 937ms (871 modules)
+ GET /api/health 503 in 1242ms
+ GET /api/health 503 in 50ms
+{"level":30,"time":"2026-08-07T12:48:46.691Z","service":"learning-platform","env":"development","requestId":"e3a25597-66c0-446c-8a05-235d9965f801","method":"GET","route":"/api/auth/session","status":401,"durationMs":16,"msg":"request_completed"}
+ GET /api/auth/session 401 in 178ms
+ GET /api/auth/csrf 200 in 74ms
+ POST /api/auth/callback/credentials 302 in 564ms
+ GET /login 200 in 445ms
+ GET /api/auth/providers 200 in 61ms
+ GET /api/auth/csrf 200 in 52ms
+ POST /api/auth/callback/credentials? 200 in 530ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 3.8s (888 modules)
+ GET /dashboard 200 in 5172ms
+ ○ Compiling /api/health ...
+ ✓ Compiled /api/health in 575ms (654 modules)
+ GET /api/health 200 in 946ms
+ ✓ Compiled in 284ms (117 modules)
+ GET /login?tenantSlug=demo&email=admin%40lp.local&password=changeme 200 in 570ms
+ ✓ Compiled /api/auth/[...nextauth] in 472ms (655 modules)
+ GET /api/auth/providers 200 in 880ms
+ GET /api/auth/csrf 200 in 82ms
+ POST /api/auth/callback/credentials? 200 in 818ms
+ GET /dashboard 200 in 477ms
+ ○ Compiling /courses ...
+ ✓ Compiled /courses in 753ms (890 modules)
+ GET /courses 200 in 1339ms
+ ○ Compiling /admin/courses ...
+ ✓ Compiled /admin/courses in 1101ms (902 modules)
+ GET /admin/courses 200 in 2181ms
+ GET /dashboard 200 in 94ms
+ GET /admin/courses 200 in 87ms
+ ○ Compiling / ...
+ ✓ Compiled / in 838ms (904 modules)
+ GET / 200 in 1574ms
+ ✓ Compiled in 2.9s (247 modules)
+ ✓ Compiled in 311ms (247 modules)
+ GET /dashboard 200 in 593ms
+ GET /dashboard 200 in 235ms
+ ✓ Compiled in 1759ms (911 modules)
+ GET /dashboard 200 in 1031ms
+ ✓ Compiled in 1350ms (911 modules)
+(node:24044) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 SIGTERM listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24044) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 SIGINT listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+ ⨯ TypeError: Assignment to constant variable.
+    at toJalali (src\app\dashboard\page.tsx:38:3)
+    at formatJalali (src\app\dashboard\page.tsx:65:13)
+    at DashboardPage (src\app\dashboard\page.tsx:137:62)
+  36 |   const jDayNo = gDayNo - 79;
+  37 |   const jNp = Math.floor(jDayNo / 12053);
+> 38 |   jDayNo %= 12053;
+     |   ^
+  39 |   let jy = 979 + 33 * jNp + 4 * Math.floor(jDayNo / 1461);
+  40 |   jDayNo %= 1461;
+  41 |   if (jDayNo >= 366) { {
+  digest: '61183197'
+}
+ GET /dashboard 200 in 721ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1692ms (911 modules)
+ GET /dashboard 200 in 2854ms
+ ✓ Compiled in 1768ms (911 modules)
+ GET /dashboard 200 in 678ms
+ ✓ Compiled in 1595ms (911 modules)
+ GET /dashboard 200 in 834ms
+ ✓ Compiled in 942ms (911 modules)
+ GET /dashboard 200 in 532ms
+ GET /dashboard 200 in 779ms
+ ○ Compiling /api/auth/session ...
+ ✓ Compiled /api/auth/session in 1042ms (718 modules)
+{"level":30,"time":"2026-08-07T13:28:46.838Z","service":"learning-platform","env":"development","requestId":"499f553f-0128-4a51-8e54-9bac5acd1c03","method":"GET","route":"/api/auth/session","userId":"579ed66e-9a33-42e8-997a-18df983815c8","status":200,"durationMs":57,"msg":"request_completed"}
+ GET /api/auth/session 200 in 1739ms
+ GET /dashboard 200 in 777ms
+ ✓ Compiled in 2.5s (965 modules)
+ GET /dashboard 200 in 1903ms
+ GET / 200 in 787ms
+ ✓ Compiled in 1401ms (965 modules)
+ GET / 200 in 1343ms
+ GET /dashboard 200 in 1475ms
+ GET /dashboard 200 in 185ms
+ GET /courses 200 in 179ms
+ GET /dashboard 200 in 174ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.7s (902 modules)
+ GET /dashboard/learning 404 in 4097ms
+ GET /dashboard 200 in 3743ms
+ GET /dashboard/certificates 404 in 398ms
+ GET /dashboard/certificates 404 in 829ms
+ GET /dashboard 200 in 2359ms
+ GET /courses 200 in 359ms
+ GET /admin/courses 200 in 374ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 204ms
+ ✓ Compiled in 1381ms (911 modules)
+ ○ Compiling /_not-found ...
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 853ms
+ GET /admin/courses 200 in 1059ms
+ ✓ Compiled /_not-found in 1420ms (902 modules)
+ GET /dashboard/certificates 404 in 1610ms
+ GET /dashboard/certificates 404 in 292ms
+ ✓ Compiled in 1807ms (916 modules)
+ GET /dashboard/certificates 404 in 642ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 812ms
+ GET /dashboard/certificates 404 in 693ms
+ GET /admin/courses 200 in 1507ms
+ ✓ Compiled in 1032ms (916 modules)
+ GET /dashboard/certificates 404 in 412ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 533ms
+ GET /dashboard/certificates 404 in 252ms
+ GET /admin/courses 200 in 782ms
+ ✓ Compiled in 1192ms (916 modules)
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 423ms
+ GET /dashboard/certificates 404 in 92ms
+ GET /admin/courses 200 in 776ms
+ GET /dashboard/certificates 404 in 214ms
+ GET /dashboard 200 in 835ms
+ GET /dashboard/certificates 404 in 148ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 157ms
+ ✓ Compiled in 1387ms (251 modules)
+ GET /dashboard/certificates 404 in 580ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 226ms
+ GET /dashboard 200 in 1280ms
+ GET /dashboard/certificates 404 in 188ms
+ ✓ Compiled in 411ms (251 modules)
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 516ms
+ GET /dashboard/certificates 404 in 415ms
+ GET /dashboard/certificates 404 in 246ms
+ GET /dashboard 200 in 1238ms
+ ✓ Compiled in 2.3s (916 modules)
+ GET /dashboard/certificates 404 in 520ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 1074ms
+ GET /dashboard/certificates 404 in 496ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 290ms
+ GET /dashboard 200 in 1780ms
+ ✓ Compiled in 1953ms (916 modules)
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 1180ms
+ GET /dashboard/certificates 404 in 450ms
+ GET /dashboard/certificates 404 in 259ms
+ GET /dashboard 200 in 2148ms
+ ✓ Compiled in 2.1s (919 modules)
+ GET /dashboard/certificates 404 in 207ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 1484ms
+ GET /dashboard/certificates 404 in 321ms
+ GET /dashboard 200 in 1931ms
+ ✓ Compiled in 1600ms (919 modules)
+ GET /dashboard 200 in 914ms
+ GET /dashboard/certificates 404 in 100ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 1268ms
+ GET /dashboard/certificates 404 in 1013ms
+ GET /dashboard 200 in 1706ms
+ ✓ Compiled in 1472ms (905 modules)
+ GET /dashboard/certificates 404 in 295ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 977ms
+ GET /dashboard/certificates 404 in 494ms
+ GET /dashboard 200 in 999ms
+ ✓ Compiled in 2.2s (919 modules)
+ GET /dashboard/certificates 404 in 167ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 747ms
+ GET /dashboard/certificates 404 in 404ms
+ GET /dashboard 200 in 1369ms
+ ✓ Compiled in 1897ms (919 modules)
+ GET /dashboard/certificates 404 in 822ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 887ms
+ GET /dashboard 200 in 1312ms
+ GET /dashboard/certificates 404 in 188ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 181ms
+ ✓ Compiled in 1498ms (919 modules)
+ GET /dashboard/certificates 404 in 464ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 1066ms
+ GET /dashboard/certificates 404 in 560ms
+ GET /dashboard 200 in 1539ms
+ ✓ Compiled in 296ms (252 modules)
+ ✓ Compiled in 376ms (252 modules)
+ GET /dashboard/certificates 404 in 272ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 587ms
+ GET /dashboard/certificates 404 in 94ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 473ms
+ GET /dashboard/certificates 404 in 200ms
+ GET /dashboard 200 in 1229ms
+ GET /dashboard 200 in 799ms
+ ✓ Compiled in 784ms (919 modules)
+ GET /dashboard/certificates 404 in 345ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 431ms
+ GET /dashboard/certificates 404 in 232ms
+ GET /dashboard 200 in 823ms
+ GET /login 200 in 178ms
+ GET /dashboard 200 in 619ms
+ GET /dashboard 200 in 456ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1734ms (674 modules)
+[31m[auth][error][0m MissingCSRF: CSRF token was missing during an action signout. Read more at https://errors.authjs.dev#missingcsrf
+    at validateCSRF (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/actions/callback/oauth/csrf-token.js:45:11)
+    at AuthInternal (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/lib/index.js:78:100)
+    at async Auth (webpack-internal:///(rsc)/../../node_modules/.pnpm/@auth+core@0.41.2/node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:38696)
+    at async AppRouteRouteModule.handle (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:5:45978)
+    at async responseGenerator (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:206:38)
+    at async AppRouteRouteModule.handleResponse (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:1:195304)
+    at async handleResponse (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:268:32)
+    at async handler (webpack-internal:///(rsc)/../../node_modules/.pnpm/next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5Ccode%5Clearning-platform%5Capps%5Cweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:320:13)
+    at async DevServer.renderToResponseWithComponentsImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1430:9)
+    at async DevServer.renderPageComponent (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1482:24)
+    at async DevServer.renderToResponseImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1522:32)
+    at async DevServer.pipeImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:1026:25)
+    at async NextNodeServer.handleCatchallRenderRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\base-server.js:917:17)
+    at async D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:400:20
+    at async Span.traceAsyncFn (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\dev\next-dev-server.js:396:24)
+    at async invokeRender (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (D:\code\learning-platform\node_modules\.pnpm\next@15.5.20_react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106__react@19.0.0-rc-66855b96-20241106\node_modules\next\dist\server\lib\start-server.js:226:13)
+ POST /api/auth/signout 302 in 2357ms
+ GET /api/auth/csrf 200 in 44ms
+ POST /api/auth/signout 302 in 38ms
+ GET /dashboard 200 in 776ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 250ms
+ POST /dashboard 303 in 165ms
+ GET /login 200 in 531ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 202ms
+ GET /api/auth/providers 200 in 85ms
+ GET /api/auth/csrf 200 in 38ms
+ POST /api/auth/callback/credentials? 200 in 659ms
+ GET /dashboard 200 in 507ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 269ms
+ GET /login 200 in 879ms
+ GET /login?callbackUrl=%2Fdashboard%2Fcertificates 200 in 178ms
+[?25h

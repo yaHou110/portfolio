@@ -1,0 +1,22 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript", "plugin:jsx-a11y/recommended"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "drizzle-orm",
+            "message": "apps/web must use @learning-platform/core/api (see ADR-0006). drizzle-orm imports are allowed only inside @learning-platform/core."
+          },
+          {
+            "name": "pg",
+            "message": "apps/web must use @learning-platform/core/db client (see ADR-0006). pg imports are allowed only inside @learning-platform/core."
+          }
+        ],
+        "patterns": ["drizzle-orm/*", "pg/*"]
+      }
+    ]
+  },
+  "ignorePatterns": [".next", "node_modules", "next-env.d.ts"]
+}

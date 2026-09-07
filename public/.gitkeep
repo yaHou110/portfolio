@@ -1,0 +1,7 @@
+# Keeps the public/ directory in git so it is always present for:
+# - the Dockerfile COPY (apps/web/Dockerfile line 60) which otherwise fails the
+#   image build with "public: not found" on a fresh checkout;
+# - Next.js static-asset serving (public/ is the conventional home for
+#   favicons, robots.txt, and the future PWA web manifest + service worker
+#   per ADR-0016).
+# Remove this .gitkeep once real public assets are added.

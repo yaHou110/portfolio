@@ -1,0 +1,6 @@
+
+> web@0.1.0 dev D:\code\learning-platform\apps\web
+> next dev "--" "-p" "3000"
+
+Invalid project directory provided, no such directory: D:\code\learning-platform\apps\web\-p
+ ELIFECYCLE  Command failed with exit code 1.
