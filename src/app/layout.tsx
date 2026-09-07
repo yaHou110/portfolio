@@ -11,14 +11,14 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  title: "رویش | سامانه فرهنگی، تربیتی حوزه و خانواده",
+  title: "YOUR NAME | Product Engineer",
   description:
-    "سامانه فرهنگی، تربیتی حوزه و خانواده — با هم برای رشد، با هم برای آینده",
+    "پورتفولیوی شخصی YOUR NAME؛ طراحی و توسعهٔ وب‌اپلیکیشن، داشبورد و محصولات SaaS.",
   // iOS home-screen metadata (web app manifest covers Android/Chrome).
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "رویش",
+    title: "YOUR NAME",
   },
   icons: {
     icon: "/icons/icon-192.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#047857",
+  themeColor: "#f2efe9",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,7 +63,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body
-        className={`${vazirmatn.className} antialiased bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100`}
+        className={`${vazirmatn.className} antialiased`}
       >
         {children}
         <PwaRegister />

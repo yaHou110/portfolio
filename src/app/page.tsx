@@ -1,88 +1,43 @@
 import Link from "next/link";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
-import { catalog, learning } from "@learning-platform/core/api";
-import AppShell from "@/components/AppShell";
-import type { Role } from "@learning-platform/core/db/schema";
+import PortfolioInteractive from "@/components/PortfolioInteractive";
+import { ServiceCard, Step } from "@/components/PortfolioSection";
 
-export const dynamic = "force-dynamic";
-
-const ADMIN_ROLES: readonly Role[] = ["super_admin", "center_admin"];
-
-/**
- * Home — entry point after login. Students get a quick view of their
- * enrollments; admins get tenant-level counts.
- */
-export default async function HomePage(): Promise<JSX.Element> {
-  const session = await auth();
-  if (!session?.user) redirect("/login");
-
-  const { tenantId, id: userId, role } = session.user;
-  const isAdmin = ADMIN_ROLES.includes(role);
-
-  let enrollmentCount = 0;
-  let completedCount = 0;
-  let courseCount = 0;
-  try {
-    if (isAdmin) {
-      courseCount = (await catalog.listCourses(tenantId, { includeNonPublished: true })).length;
-      const all = await learning.listEnrollments(tenantId);
-      enrollmentCount = all.length;
-      completedCount = all.filter((e) => e.status === "completed").length;
-    } else {
-      const mine = await learning.listEnrollments(tenantId, { userId });
-      enrollmentCount = mine.length;
-      completedCount = mine.filter((e) => e.status === "completed").length;
-    }
-  } catch {
-    // DB unreachable in a degraded deploy — render nav only rather than crash.
-  }
-
+export default function HomePage(): JSX.Element {
   return (
-    <AppShell user={{ name: session.user.name, role }}>
-      <h1 className="mb-1 text-2xl font-bold">خوش آمدید، {session.user.name}</h1>
-      <p className="mb-6 text-sm text-gray-600 dark:text-gray-400 dark:text-gray-500">
-        {isAdmin
-          ? "پنل مدیریت مرکز شما — آمار کلی و دسترسی سریع."
-          : "به فضای یادگیری خود خوش آمدید."}
-      </p>
+    <main className="portfolio-shell">
+      <header className="site-header">
+        <Link className="brand" href="/" aria-label="صفحهٔ اصلی">
+          <span className="brand-mark">M</span>
+          <span><strong>YOUR NAME</strong><small>PRODUCT ENGINEER</small></span>
+        </Link>
+        <nav className="desktop-nav" aria-label="ناوبری اصلی">
+          <a href="#work">پروژه‌ها</a><a href="#services">خدمات</a><a href="#process">فرآیند</a><a href="#contact">تماس</a>
+        </nav>
+        <a className="header-cta" href="mailto:hello@example.com">شروع همکاری <span aria-hidden="true">↗</span></a>
+        <PortfolioInteractive />
+      </header>
 
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Link
-          href="/courses"
-          className="rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 p-5 shadow-sm transition hover:border-emerald-300"
-        >
-          <div className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">دوره‌های در دسترس</div>
-          <div className="mt-1 text-3xl font-bold text-emerald-800">
-            {courseCount || "—"}
-          </div>
-          <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">مشاهده کاتالوگ دوره‌ها</div>
-        </Link>
-        <Link
-          href="/dashboard"
-          className="rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 p-5 shadow-sm transition hover:border-emerald-300"
-        >
-          <div className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">ثبت‌نام‌های من</div>
-          <div className="mt-1 text-3xl font-bold text-emerald-800">{enrollmentCount}</div>
-          <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-            {completedCount} دوره تکمیل‌شده
-          </div>
-        </Link>
-        <Link
-          href={isAdmin ? "/admin/courses" : "/dashboard"}
-          className="rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 p-5 shadow-sm transition hover:border-emerald-300"
-        >
-          <div className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500">
-            {isAdmin ? "مدیریت محتوا" : "پیشرفت من"}
-          </div>
-          <div className="mt-1 text-3xl font-bold text-emerald-800">
-            {isAdmin ? "ورود" : "ورود"}
-          </div>
-          <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-            {isAdmin ? "ایجاد و انتشار دوره‌ها" : "جزئیات پیشرفت یادگیری"}
-          </div>
-        </Link>
-      </div>
-    </AppShell>
+      <section className="hero section-frame">
+        <div className="hero-copy">
+          <p className="eyebrow">توسعه‌دهندهٔ فول‌استک / فریلنسر</p>
+          <h1>محصولات دیجیتال<br /><em>ساده، سریع، دقیق.</em></h1>
+          <p className="hero-intro">من به کسب‌وکارها کمک می‌کنم ایده‌های پیچیده را به وب‌اپلیکیشن‌های قابل اعتماد و قابل استفاده تبدیل کنند.</p>
+          <div className="hero-actions"><a className="button button-primary" href="#work">مشاهدهٔ پروژه‌ها <span>↗</span></a><a className="text-link" href="#contact">بیایید صحبت کنیم <span>←</span></a></div>
+        </div>
+        <div className="hero-aside" aria-label="معرفی کوتاه"><span className="aside-line" /><p>کدنویسی با تمرکز روی<br /><strong>حل مسئله، نه فقط اجرا.</strong></p><span className="aside-coordinate">35°41&apos;N / 51°23&apos;E</span></div>
+      </section>
+
+      <section className="stack-strip section-frame" aria-label="تکنولوژی‌ها"><span className="eyebrow">ابزارهایی که با آن‌ها می‌سازم</span><div className="stack-list"><span>Next.js</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>REST API</span></div></section>
+
+      <section id="services" className="section-frame section-block"><div className="section-heading"><p className="eyebrow">خدمات / ۰۱</p><h2>از ایده تا محصول قابل استفاده.</h2><p>هر پروژه با یک مسئلهٔ واقعی شروع می‌شود. خروجی باید برای کاربر قابل فهم و برای تیم شما قابل توسعه باشد.</p></div><div className="services-grid"><ServiceCard icon="code" title="وب‌اپلیکیشن" text="رابط‌های سریع و responsive با تجربه‌ای دقیق در دسکتاپ و موبایل." /><ServiceCard icon="layers" title="داشبورد و پنل" text="تبدیل داده و فرآیندهای پیچیده به ابزارهای روشن و کاربردی." /><ServiceCard icon="server" title="Backend و API" text="ساخت API، مدل داده و زیرساختی که با رشد محصول کم نمی‌آورد." /></div></section>
+
+      <section id="work" className="section-frame section-block work-section"><div className="section-heading inline-heading"><div><p className="eyebrow">پروژه‌ها / ۰۲</p><h2>چیزهایی که ساخته‌ام<br /><em>یا در حال ساختنشان هستم.</em></h2></div><p>نمونه‌کارها را بر اساس مسئله، تصمیم‌های فنی و نتیجهٔ قابل مشاهده معرفی می‌کنم؛ نه فقط یک اسکرین‌شات زیبا.</p></div><PortfolioInteractive showProjects /></section>
+
+      <section id="process" className="section-frame section-block process-section"><div className="section-heading"><p className="eyebrow">فرآیند / ۰۳</p><h2>همکاری بدون ابهام.</h2></div><div className="process-list"><Step number="۰۱" title="شناخت مسئله" text="اهداف، محدودیت‌ها و کاربر اصلی را با هم روشن می‌کنیم." /><Step number="۰۲" title="طراحی مسیر" text="راه‌حل را به بخش‌های کوچک و قابل بررسی تقسیم می‌کنیم." /><Step number="۰۳" title="ساخت و تحویل" text="با بازخورد منظم می‌سازیم، تست می‌کنیم و مستند تحویل می‌دهیم." /></div></section>
+
+      <section id="contact" className="contact-section section-frame"><div><p className="eyebrow">تماس / ۰۴</p><h2>یک ایده در ذهن دارید؟<br /><em>بیایید جدی‌اش کنیم.</em></h2></div><div className="contact-action"><p>برای پروژه‌های جدید در دسترس هستم. چند خط دربارهٔ مسئله‌تان بنویسید.</p><a className="button button-primary" href="mailto:hello@example.com">hello@example.com <span>↗</span></a></div></section>
+
+      <footer className="site-footer section-frame"><span>© ۲۰۲۶ YOUR NAME</span><span>ساخته‌شده با Next.js و دقت زیاد</span><div><a href="#">GitHub</a><a href="#">LinkedIn</a></div></footer>
+    </main>
   );
 }
