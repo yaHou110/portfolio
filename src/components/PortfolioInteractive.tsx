@@ -18,6 +18,12 @@ const projects: Project[] = [
 
 const filters = ["همه", "سیستم", "ابزار", "محصول"];
 
+function clearLegacyPortfolioWorker() {
+  if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
+  void navigator.serviceWorker.getRegistrations().then((registrations) => Promise.all(registrations.filter((registration) => registration.active?.scriptURL.includes("/sw.js")).map((registration) => registration.unregister())));
+  void caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith("rooyesh-")).map((key) => caches.delete(key))));
+}
+
 export default function PortfolioInteractive({ showProjects = false }: { showProjects?: boolean }): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState("همه");
@@ -28,6 +34,7 @@ export default function PortfolioInteractive({ showProjects = false }: { showPro
   const sections = [["home", "خانه"], ["work", "پروژه‌ها"], ["services", "خدمات"], ["process", "فرآیند"], ["contact", "تماس"]];
 
   useEffect(() => {
+    clearLegacyPortfolioWorker();
     const timer = window.setTimeout(() => setLoaded(true), 600);
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && setActiveSection(entry.target.id)), { rootMargin: "-25% 0px -65%" });
     ["home", "work", "services", "process", "contact"].forEach((id) => { const element = document.getElementById(id); if (element) observer.observe(element); });

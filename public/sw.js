@@ -1,17 +1,7 @@
-/* Rooyesh PWA service worker.
- *
- * Strategy:
- *  - Navigations (HTML documents): network-first, fall back to the
- *    last-cached copy for offline support.
- *  - Hashed static assets (_next/static, /icons, images): cache-first —
- *    content-addressed filenames are immutable, so the cache never goes stale.
- *  - API / auth / health routes: never cached, always network.
- *
- * Bump CACHE_VERSION to invalidate the whole cache on a breaking change.
- */
-const CACHE_VERSION = "v1";
-const STATIC_CACHE = `rooyesh-static-${CACHE_VERSION}`;
-const PAGE_CACHE = `rooyesh-pages-${CACHE_VERSION}`;
+/* Lightweight offline shell for the public portfolio. */
+const CACHE_VERSION = "v2";
+const STATIC_CACHE = `yahou-static-${CACHE_VERSION}`;
+const PAGE_CACHE = `yahou-pages-${CACHE_VERSION}`;
 
 const STATIC_URL_PATTERNS = [
   /\/_next\/static\/.*/,
@@ -25,12 +15,9 @@ const NEVER_CACHE_URL_PATTERNS = [/^\/api\//, /^\/_next\/data\//];
 self.addEventListener("install", (event) => {
   // Activate immediately — don't wait for other tabs to close.
   self.skipWaiting();
-  // Seed the shell so a cold offline open still renders the app.
+  // Seed only the public portfolio route.
   event.waitUntil(
-    caches
-      .open(PAGE_CACHE)
-      .then((cache) => cache.addAll(["/", "/login", "/forgot-password"]))
-      .catch(() => {})
+    caches.open(PAGE_CACHE).then((cache) => cache.add("/")).catch(() => {})
   );
 });
 
@@ -56,7 +43,7 @@ self.addEventListener("fetch", (event) => {
   // Only handle same-origin GET requests.
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
 
-  // Never touch API / data / auth traffic — always go to the network.
+  // Never cache API or framework data requests.
   if (NEVER_CACHE_URL_PATTERNS.some((re) => re.test(url.pathname))) return;
 
   // Navigation requests: network-first with offline fallback.
