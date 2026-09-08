@@ -14,13 +14,6 @@
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.2",
-    "@learning-platform/contracts": "file:./packages/contracts",
-    "@learning-platform/core": "file:./packages/core",
-    "@learning-platform/plugin-auth": "file:./packages/plugin-auth",
-    "@learning-platform/plugin-catalog": "file:./packages/plugin-catalog",
-    "@learning-platform/plugin-credentials": "file:./packages/plugin-credentials",
-    "@learning-platform/plugin-learning": "file:./packages/plugin-learning",
-    "@learning-platform/plugin-localization": "file:./packages/plugin-localization",
     "bcryptjs": "^2.4.3",
     "drizzle-orm": "^0.45.2",
     "next": "15.5.20",
