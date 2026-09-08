@@ -34,18 +34,6 @@ const nextConfig = {
       ".js": [".ts", ".tsx", ".js", ".jsx"],
       ".mjs": [".mts", ".mjs"],
     };
-    config.resolve.alias = {
-      ...(config.resolve.alias ?? {}),
-      "@learning-platform/core/api": false,
-      "@learning-platform/core/auth": false,
-      "@learning-platform/core": false,
-      "@learning-platform/contracts": false,
-      "@learning-platform/plugin-auth": false,
-      "@learning-platform/plugin-catalog": false,
-      "@learning-platform/plugin-learning": false,
-      "@learning-platform/plugin-credentials": false,
-      "@learning-platform/plugin-localization": false,
-    };
     return config;
   },
 };

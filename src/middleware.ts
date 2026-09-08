@@ -6,6 +6,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
 
   const isAuthPage =
     pathname.startsWith("/login") || pathname.startsWith("/forgot-password");
+  const isPortfolioPage = pathname === "/";
   const isApiAuthPage = pathname.startsWith("/api/auth");
   const isHealthPage = pathname === "/api/health";
   const isReadyPage = pathname === "/api/ready";
@@ -15,6 +16,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   const isSecurityTxt = pathname === "/.well-known/security.txt";
 
   const isPublic =
+    isPortfolioPage ||
     isApiAuthPage ||
     isHealthPage ||
     isReadyPage ||
