@@ -12,11 +12,11 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "رویش / Learning Platform",
-    description: "بازطراحی یک پلتفرم آموزشی با احراز هویت، کاتالوگ دوره و پنل پیشرفت.",
+    title: "Atlas Commerce",
+    description: "یک تجربهٔ commerce سریع و دقیق برای تبدیل ایدهٔ محصول به مسیر خریدی قابل اعتماد.",
     category: "محصول",
-    tags: ["Next.js", "TypeScript", "PostgreSQL"],
-    status: "پروژهٔ پایه",
+    tags: ["Next.js", "TypeScript", "Performance"],
+    status: "نمونهٔ منتخب",
   },
   {
     title: "Operations Dashboard",
