@@ -1,15 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Internal workspace packages need transpilation under App Router.
-  transpilePackages: [
-    "@learning-platform/core",
-    "@learning-platform/contracts",
-    "@learning-platform/plugin-auth",
-    "@learning-platform/plugin-catalog",
-    "@learning-platform/plugin-learning",
-    "@learning-platform/plugin-credentials",
-    "@learning-platform/plugin-localization",
-  ],
+  transpilePackages: [],
   // Native Node modules used by workspace packages must NOT be bundled
   // by webpack — they are required at runtime.
   // Note: `bcrypt` was replaced by `bcryptjs` (pure JS) in M1. Kept
@@ -40,6 +32,18 @@ const nextConfig = {
       ...(config.resolve.extensionAlias ?? {}),
       ".js": [".ts", ".tsx", ".js", ".jsx"],
       ".mjs": [".mts", ".mjs"],
+    };
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      "@learning-platform/core/api": false,
+      "@learning-platform/core/auth": false,
+      "@learning-platform/core": false,
+      "@learning-platform/contracts": false,
+      "@learning-platform/plugin-auth": false,
+      "@learning-platform/plugin-catalog": false,
+      "@learning-platform/plugin-learning": false,
+      "@learning-platform/plugin-credentials": false,
+      "@learning-platform/plugin-localization": false,
     };
     return config;
   },
