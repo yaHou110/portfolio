@@ -8,6 +8,7 @@ const nextConfig = {
   // empty for future native modules if needed.
   serverExternalPackages: [],
   reactStrictMode: true,
+  turbopack: {},
   typescript: { ignoreBuildErrors: true },
   // Produce a standalone output ONLY for the Docker image build (M6 deployment).
   // On Vercel (serverless), `standalone` is unnecessary and can perturb the
