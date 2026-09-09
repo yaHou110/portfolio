@@ -2,60 +2,32 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Project = {
-  title: string;
-  description: string;
-  category: string;
-  tags: string[];
-  status: string;
-};
-
+type Project = { title: string; category: string; year: string; text: string; stack: string; accent: string };
 const projects: Project[] = [
-  { title: "Edge Query Engine", description: "موتور کوئری سبک برای Edge با کش هوشمند و تایپ‌سیف کلاینت. کاهش ۴۰٪ latency در p95.", category: "سیستم", tags: ["Cloudflare Workers", "TypeScript", "Rust WASM"], status: "Project A — 2024" },
-  { title: "Design System CLI", description: "ابزار CLI برای تولید توکن، مستندسازی خودکار و چک بصری کامپوننت‌ها در CI.", category: "ابزار", tags: ["CLI", "AST", "Playwright"], status: "Project B — 2023" },
-  { title: "Realtime Collab Canvas", description: "بوم همکاری با CRDT، حضور زنده و تاریخچهٔ قابل پخش برای تیم‌های دیزاین فنی.", category: "محصول", tags: ["Yjs", "WebGL", "WebSocket"], status: "Project C — 2024" },
+  { title: "Edge Query Engine", category: "Systems", year: "2024", text: "A fast, type-safe query layer for teams building at the edge.", stack: "TypeScript · Rust WASM", accent: "violet" },
+  { title: "Design System CLI", category: "Tools", year: "2023", text: "A command line workflow that keeps product language consistent from token to release.", stack: "Node · AST · Playwright", accent: "lime" },
+  { title: "Realtime Canvas", category: "Product", year: "2024", text: "A collaborative surface for technical design teams with live presence and history.", stack: "Yjs · WebGL · WebSocket", accent: "blue" },
 ];
+const filters = ["All", "Systems", "Tools", "Product"];
+const navItems = [["home", "Home"], ["work", "Work"], ["about", "About"], ["contact", "Contact"]];
 
-const filters = ["همه", "سیستم", "ابزار", "محصول"];
-
-function clearLegacyPortfolioWorker() {
-  if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
-  void navigator.serviceWorker.getRegistrations().then((registrations) => Promise.all(registrations.filter((registration) => registration.active?.scriptURL.includes("/sw.js")).map((registration) => registration.unregister())));
-  void caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith("rooyesh-")).map((key) => caches.delete(key))));
-}
-
-export default function PortfolioInteractive({ showProjects = false }: { showProjects?: boolean }): JSX.Element {
+export default function PortfolioInteractive(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filter, setFilter] = useState("همه");
-  const [activeSection, setActiveSection] = useState("home");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState("All");
+  const [active, setActive] = useState("home");
+  const [selected, setSelected] = useState<Project | null>(null);
   const [loaded, setLoaded] = useState(false);
-  const visibleProjects = useMemo(() => filter === "همه" ? projects : projects.filter((project) => project.category === filter), [filter]);
-  const sections = [["home", "خانه"], ["work", "پروژه‌ها"], ["services", "خدمات"], ["process", "فرآیند"], ["contact", "تماس"]];
-
-  useEffect(() => {
-    clearLegacyPortfolioWorker();
-    const timer = window.setTimeout(() => setLoaded(true), 600);
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && setActiveSection(entry.target.id)), { rootMargin: "-25% 0px -65%" });
-    ["home", "work", "services", "process", "contact"].forEach((id) => { const element = document.getElementById(id); if (element) observer.observe(element); });
-    return () => { window.clearTimeout(timer); observer.disconnect(); };
-  }, []);
-
-  const scrollTo = (id: string) => { setMenuOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
-
-  return (
-    <>
-      <div className={`site-loader ${loaded ? "is-done" : ""}`} aria-hidden="true"><div className="loader-inner"><span>YH / 2026</span><strong>LOADING SYSTEM <b>{loaded ? "100" : "084"}%</b></strong><i /></div></div>
-      <header className="builder-header">
-        <div className="builder-nav-shell">
-          <button className="builder-logo" onClick={() => scrollTo("home")} aria-label="صفحهٔ اصلی"><span>Y</span><strong>YAHOU<small>PRODUCT / SOFTWARE</small></strong></button>
-          <nav className="builder-nav" aria-label="ناوبری اصلی">{sections.map(([id, label]) => <button key={id} className={activeSection === id ? "is-active" : ""} onClick={() => scrollTo(id)}>{label}</button>)}</nav>
-          <div className="header-tools"><span className="availability"><i /> برای پروژه‌های منتخب باز هستم</span><button className="contact-pill" onClick={() => scrollTo("contact")}>شروع همکاری <span>↗</span></button><button className="menu-toggle" aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? "بستن" : "منو"}</button></div>
-          {menuOpen && <nav className="mobile-nav" aria-label="ناوبری موبایل">{sections.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}<span>↗</span></button>)}</nav>}
-        </div>
-      </header>
-      {showProjects && <><div className="filter-row" role="tablist" aria-label="فیلتر پروژه‌ها">{filters.map((item) => <button key={item} type="button" role="tab" aria-selected={filter === item} className={filter === item ? "filter-chip is-active" : "filter-chip"} onClick={() => setFilter(item)}>{item}</button>)}</div><div className="projects-grid">{visibleProjects.map((project, index) => <button type="button" className={`project-card project-card-${index + 1}`} key={project.title} onClick={() => setSelectedProject(project)}><div className="project-card-top"><span className="eyebrow">{project.status}</span><span className="project-number">0{index + 1}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><span className="project-link">جزئیات پروژه <span aria-hidden="true">↗</span></span></button>)}</div></>}
-      {selectedProject && <div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title"><div className="modal-card"><button className="modal-close" onClick={() => setSelectedProject(null)} aria-label="بستن" type="button">×</button><div className="eyebrow">PROJECT DETAIL / {selectedProject.status}</div><h2 id="project-modal-title">{selectedProject.title}</h2><p>{selectedProject.description}</p><div className="modal-metrics"><span><b>Impact</b> قابل اندازه‌گیری</span><span><b>Stack</b> {selectedProject.tags.join(" · ")}</span></div><button className="button button-primary" onClick={() => setSelectedProject(null)}>بستن جزئیات <span>↗</span></button></div></div>}
-    </>
-  );
+  const visible = useMemo(() => filter === "All" ? projects : projects.filter((project) => project.category === filter), [filter]);
+  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 700); const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && setActive(entry.target.id)), { rootMargin: "-35% 0px -55%" }); ["home", "work", "about", "contact"].forEach((id) => { const element = document.getElementById(id); if (element) observer.observe(element); }); return () => { window.clearTimeout(timer); observer.disconnect(); }; }, []);
+  const jump = (id: string) => { setMenuOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
+  return <main className="reference-site">
+    <div className={`reference-loader ${loaded ? "is-hidden" : ""}`} aria-hidden="true"><span>YAHOU / 2026</span><strong>LOADING SYSTEM <b>{loaded ? "100" : "084"}%</b></strong><i /></div>
+    <header className="reference-header"><button className="reference-brand" onClick={() => jump("home")} aria-label="Go home"><span className="brand-mark">Y</span><span><b>YAHOU</b><small>PRODUCT ENGINEER</small></span></button><nav className="reference-nav" aria-label="Primary navigation">{navItems.map(([id, label]) => <button key={id} className={active === id ? "active" : ""} onClick={() => jump(id)}>{label}</button>)}</nav><div className="header-actions"><span className="availability"><i /> Available for select work</span><button className="outline-button" onClick={() => jump("contact")}>Start a project <span>↗</span></button><button className="mobile-menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen}>{menuOpen ? "Close" : "Menu"}</button></div>{menuOpen && <nav className="mobile-panel" aria-label="Mobile navigation">{navItems.map(([id, label]) => <button key={id} onClick={() => jump(id)}>{label}<span>↗</span></button>)}</nav>}</header>
+    <section id="home" className="reference-hero page-section"><div className="hero-grid-lines" aria-hidden="true" /><div className="hero-copy"><p className="kicker"><span>01</span> Independent product engineer</p><h1>Digital products<br /><em>with intent.</em></h1><p className="hero-lede">I turn complex ideas into clear, resilient interfaces and systems that people actually enjoy using.</p><div className="hero-buttons"><button className="solid-button" onClick={() => jump("work")}>Explore selected work <span>↗</span></button><button className="underlined-button" onClick={() => jump("about")}>More about me <span>↓</span></button></div></div><div className="hero-art" aria-label="Product engineering visual"><div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" /><div className="art-core"><span>YH</span><small>BUILD<br />WITH<br />PURPOSE</small></div><div className="art-label label-top">SYSTEM / 001</div><div className="art-label label-bottom">35°41&apos;N / 51°23&apos;E</div></div><div className="hero-meta"><span>Scroll to explore</span><i /><span>01—04</span></div></section>
+    <section className="marquee-strip" aria-label="Capabilities"><div className="marquee-track"><span>Product thinking</span><b>✳</b><span>Full-stack craft</span><b>✳</b><span>Systems that scale</span><b>✳</b><span>Product thinking</span><b>✳</b><span>Full-stack craft</span></div></section>
+    <section id="work" className="work-section page-section"><div className="section-intro"><div><p className="kicker"><span>02</span> Selected work</p><h2>Built for the<br /><em>real world.</em></h2></div><p>Every project is a balance of sharp thinking, considered detail, and reliable engineering. Here are a few things I have shipped.</p></div><div className="filter-row">{filters.map((item) => <button key={item} className={filter === item ? "filter-active" : ""} onClick={() => setFilter(item)}>{item}</button>)}</div><div className="project-grid">{visible.map((project, index) => <button className={`project-card project-${project.accent}`} key={project.title} onClick={() => setSelected(project)}><div className="card-top"><span>{project.category}</span><span>0{index + 1} / {project.year}</span></div><div className="project-image"><div className="image-frame"><span>{project.title.slice(0, 2).toUpperCase()}</span><i /></div></div><div className="card-bottom"><h3>{project.title}</h3><p>{project.text}</p><span className="card-link">View case study ↗</span></div></button>)}</div></section>
+    <section id="about" className="about-section page-section"><div className="section-intro"><div><p className="kicker"><span>03</span> A little context</p><h2>Quietly<br /><em>obsessed.</em></h2></div><p>I am a product engineer focused on the space where design, code, and business meet. I like small teams, ambitious problems, and work that earns its place in the world.</p></div><div className="about-grid"><div className="about-note"><span>Currently</span><strong>Building useful<br />things on the internet.</strong><small>Based in Tehran · Working globally</small></div><div className="skill-list"><div><span>01</span><b>Product strategy</b><p>From first question to a sharper direction.</p></div><div><span>02</span><b>Interface systems</b><p>Clear visual language with room to grow.</p></div><div><span>03</span><b>Full-stack engineering</b><p>Durable foundations for meaningful products.</p></div></div></div></section>
+    <section id="contact" className="contact-section page-section"><p className="kicker"><span>04</span> Have a good problem?</p><h2>Let&apos;s make<br /><em>something matter.</em></h2><a className="contact-email" href="mailto:hello@yahou.dev">hello@yahou.dev <span>↗</span></a><div className="contact-footer"><span>Open to select collaborations</span><span>© 2026 Yahou</span></div></section>
+    {selected && <div className="reference-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div className="modal-content"><button className="modal-close" onClick={() => setSelected(null)} aria-label="Close">×</button><p className="kicker">{selected.category} / {selected.year}</p><h2 id="modal-title">{selected.title}</h2><p>{selected.text}</p><div className="modal-stack">{selected.stack}</div><button className="solid-button" onClick={() => setSelected(null)}>Close detail <span>↗</span></button></div></div>}
+  </main>;
 }
