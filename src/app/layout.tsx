@@ -10,8 +10,8 @@ const vazirmatn = Vazirmatn({
 })
 
 export const metadata: Metadata = {
-  title: "Yahou — Product Engineer",
-  description: "پورتفولیوی Yahou؛ طراحی و توسعهٔ وب‌اپلیکیشن، داشبورد و محصولات دیجیتال.",
+  title: "یاهو — مهندس محصول",
+  description: "نمونه‌کار یاهو؛ طراحی و ساخت محصولات دیجیتال سریع، دقیق و قابل توسعه برای مشتریان فارسی‌زبان.",
 }
 
 export const viewport: Viewport = {
@@ -21,5 +21,5 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="fa" dir="rtl" className={vazirmatn.variable}><body className={vazirmatn.className}>{children}</body></html>
+  return <html lang="fa" dir="rtl" className={`bg-background ${vazirmatn.variable}`}><body className={vazirmatn.className}>{children}</body></html>
 }
